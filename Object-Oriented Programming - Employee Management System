@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Employee {
+    private int id;
+    private String name;
+    private double salary;
+
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public void displayDetails() {
+        System.out.println("Employee ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+        System.out.println("--------------------");
+    }
+}
+
+public class EmployeeManagementSystem {
+    public static void main(String[] args) {
+        // 1. Create at least 3 Employee objects.
+        Employee employee1 = new Employee(101, "Ankush", 50000.0);
+        Employee employee2 = new Employee(102, "Kane", 60000.0);
+        Employee employee3 = new Employee(103, "Smith", 55000.0);
+
+        // 2. Store them in a list.
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(employee1);
+        employeeList.add(employee2);
+        employeeList.add(employee3);
+
+        // 3. Display their details.
+        for (Employee employee : employeeList) {
+            employee.displayDetails();
+        }
+    }
+}
+//Time Complexity: The overall time complexity of the EmployeeManagementSystem program is O(n), where n is the number of employees.
+//Space Complexity: The overall space complexity of the EmployeeManagementSystem program is O(n), where n is the number of employees.
+
+//Approach Behind This Code:
+
+1)Object-Oriented Design:
+
+The problem is solved using object-oriented principles. The Employee class represents a real-world entity with its own attributes and behavior.
+Encapsulation is used by making the id, name, and salary attributes private, ensuring that they can only be accessed or modified through the class's methods.
+
+2)Data Storage:
+
+An ArrayList is used to store multiple Employee objects. This allows for dynamic resizing and easy management of the employee list.
+
+3)Iteration and Display:
+
+A for-each loop is used to iterate through the employeeList. This simplifies the process of accessing and displaying the details of each employee.
+The displayDetails() method is called for each employee object to print its information in a formatted way.
