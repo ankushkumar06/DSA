@@ -1,0 +1,66 @@
+import java.util.Arrays;
+
+public class AnagramChecker {
+
+    public static boolean areAnagrams(String str1, String str2) {
+        // Remove whitespace and convert to lowercase for case-insensitive comparison
+        str1 = str1.replaceAll("\\s", "").toLowerCase();
+        str2 = str2.replaceAll("\\s", "").toLowerCase();
+
+        // Check if the lengths are equal
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        // Convert strings to character arrays and sort them
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+
+        // Compare the sorted arrays
+        return Arrays.equals(charArray1, charArray2);
+    }
+
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        System.out.println("Input: \"" + str1 + "\", \"" + str2 + "\"");
+        System.out.println("Output: " + areAnagrams(str1, str2));
+
+        String str3 = "hello";
+        String str4 = "world";
+        System.out.println("Input: \"" + str3 + "\", \"" + str4 + "\"");
+        System.out.println("Output: " + areAnagrams(str3, str4));
+
+        String str5 = "Debit card";
+        String str6 = "Bad credit";
+        System.out.println("Input: \"" + str5 + "\", \"" + str6 + "\"");
+        System.out.println("Output: " + areAnagrams(str5, str6));
+    }
+}
+
+//Time Complexity: The dominant operation is the sorting step, which takes O(n log n) time. Therefore, the overall time complexity of the areAnagrams function is O(n log n).
+//Space Complexity: The dominant space usage comes from the character arrays. Therefore, the overall space complexity of the areAnagrams function is O(n).
+
+//Approach Behind This Code writing:
+
+1)Preprocessing:
+
+Remove whitespace from both input strings. This ensures that spaces don't affect the anagram check.
+Convert both strings to lowercase. This makes the comparison case-insensitive.
+
+2)Length Check:
+
+Compare the lengths of the processed strings. If the lengths are different, the strings cannot be anagrams. Return false immediately.
+Character Array Conversion:
+
+Convert both strings into character arrays. This allows us to sort the characters.
+Sorting:
+
+Sort both character arrays using Arrays.sort(). Sorting puts the characters in alphabetical order, making it easy to compare them.
+
+3)Comparison:
+
+Compare the sorted character arrays using Arrays.equals(). If the sorted arrays are identical, the original strings were anagrams. Return true; otherwise, return false.
+
